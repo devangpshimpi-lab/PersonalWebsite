@@ -86,6 +86,15 @@
   .project .facts b{color:var(--ink)}
   .project .btn{margin-top:auto;align-self:flex-start}
   .project .facts+.btn{margin-top:20px}
+  .essay-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:44px;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center;box-shadow:0 14px 36px rgba(40,30,20,.07);transition:transform .2s ease,box-shadow .2s ease}
+  .essay-card:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(40,30,20,.12)}
+  .essay-card h3{font-size:30px;line-height:1.2;letter-spacing:-.01em;margin-bottom:14px}
+  .essay-card p{color:#333a44;font-size:19px;margin-bottom:26px}
+  .essay-card .btn{cursor:pointer;font-family:inherit}
+  .essay-logo{display:flex;align-items:center;justify-content:center;min-height:220px;background:#faf8f3;border:1px solid var(--line);border-radius:12px;padding:28px;text-align:center}
+  .essay-logo img{max-width:100%;max-height:200px;height:auto;display:block}
+  .essay-logo .fallback{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-weight:700;font-size:20px;line-height:1.3;color:var(--accent)}
+  @media(max-width:900px){.essay-card{grid-template-columns:1fr;padding:28px;gap:26px}.essay-card h3{font-size:25px}.essay-logo{order:-1;min-height:150px}}
   .essay{padding:6px 0 0}
   .essay p{margin-bottom:22px}
   .essay .readlink{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;font-weight:600}
@@ -229,10 +238,16 @@
 
 <section id="writing"><div class="wrap">
   <h2>Writing &amp; Video</h2>
-  <div class="essay">
-    <h3>Should we be polite to ChatGPT?</h3>
-    <p>An essay on courtesy in human&ndash;AI conversation and what it does for the person typing.</p>
-    <button type="button" class="link-btn readlink" data-pdf="essay">Read the essay (PDF) &rarr;</button>
+  <div class="essay-card">
+    <div>
+      <span class="tag">Essay &middot; John Locke Global Essay Competition</span>
+      <h3>Should we be polite to ChatGPT?</h3>
+      <p>An essay on courtesy in human&ndash;AI conversation and what it does for the person typing. Written for the John Locke Global Essay Competition.</p>
+      <button type="button" class="btn primary" data-pdf="essay">Read the essay (PDF) &rarr;</button>
+    </div>
+    <div class="essay-logo">
+      <img src="images/john-locke-logo.png" alt="John Locke Institute logo" onerror="this.outerHTML='<div class=&quot;fallback&quot;>John Locke<br>Global Essay<br>Competition</div>'">
+    </div>
   </div>
   <div class="yt">
     <h3>YouTube</h3>
