@@ -73,6 +73,27 @@
     .photos.stf figure:not(:last-child),.photos.sport figure:first-child{max-width:420px} section{padding:52px 0} .card{padding:24px}
   }
 
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .project{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease}
+  .project:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(40,30,20,.12)}
+  .project .shot{display:block;aspect-ratio:16/10;overflow:hidden;background:#12101f;border-bottom:1px solid var(--line)}
+  .project .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s ease}
+  .project:hover .shot img{transform:scale(1.04)}
+  .project .body{padding:26px 28px 28px;display:flex;flex-direction:column;flex:1}
+  .project .body p{color:#333a44;font-size:17px}
+  .project .facts{list-style:none;margin:14px 0 0;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:14px;color:var(--muted)}
+  .project .facts li{padding:6px 0;border-top:1px solid var(--line)}
+  .project .facts b{color:var(--ink)}
+  .project .btn{margin-top:auto;align-self:flex-start}
+  .project .facts+.btn{margin-top:20px}
+  .essay{padding:6px 0 0}
+  .essay p{margin-bottom:22px}
+  .cert{margin:0 0 24px;max-width:560px}
+  .cert img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 10px 28px rgba(40,30,20,.10);display:block}
+  .essay .readlink{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;font-weight:600}
+  .yt{margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+  @media(max-width:900px){.projects{grid-template-columns:1fr}}
+
   .link-btn{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer}
   .link-btn:hover{text-decoration:underline}
   .pdf-modal{position:fixed;inset:0;z-index:50;display:none;background:rgba(20,18,16,.72);padding:24px}
@@ -172,23 +193,57 @@
 
 <section id="projects"><div class="wrap">
   <h2>Projects</h2>
-  <p class="lead">Tools I built to understand how language models reason and fail.</p>
-  <div class="grid2">
-    <div class="card"><span class="tag">NLP</span><h3>Reasoning Evaluator</h3>
-      <p>A tool for evaluating how well language models reason through problems, built so each step is readable by the next person who opens the code.</p>
-      <!-- TODO: add one result (metric and dataset) --></div>
-    <div class="card"><span class="tag">Machine learning</span><h3>Fake News Detection</h3>
-      <p>Models that classify news text as reliable or misleading, compared against simple baselines.</p>
-      <!-- TODO: add one result (accuracy or F1 and dataset) --></div>
+  <p class="lead">Two live tools I built to teach and measure reasoning. Both are open to try.</p>
+  <div class="projects">
+    <article class="project">
+      <a class="shot" href="https://huggingface.co/spaces/Devang1211/Science-Bridge-AI" target="_blank" rel="noopener" aria-label="Open the Reasoning Evaluator">
+        <img src="images/reasoning-evaluator.jpg" alt="Screenshot of ScienceBridge AI, the Argument Intelligence Analyzer" loading="lazy">
+      </a>
+      <div class="body">
+        <span class="tag">NLP &middot; Live demo</span>
+        <h3>Reasoning Evaluator (ScienceBridge AI)</h3>
+        <p>Paste a student&rsquo;s argument and the Argument Intelligence Analyzer scores the quality of its reasoning, looking at logical structure, depth, evidence and clarity.</p>
+        <ul class="facts">
+          <li><b>Model:</b> transformer-based NLP, trained on 45K+ argument-quality samples</li>
+          <li><b>Result:</b> 0.15 RMSE on evaluation</li>
+          <li><b>Hosted on:</b> Hugging Face Spaces</li>
+        </ul>
+        <a class="btn primary" href="https://huggingface.co/spaces/Devang1211/Science-Bridge-AI" target="_blank" rel="noopener">Try the evaluator &rarr;</a>
+      </div>
+    </article>
+    <article class="project">
+      <a class="shot" href="https://logical.sciencetechfoothold.org/" target="_blank" rel="noopener" aria-label="Open Logical">
+        <img src="images/logical-platform.jpg" alt="Screenshot of Logical, the 3D Knowledge Continuum learning platform" loading="lazy">
+      </a>
+      <div class="body">
+        <span class="tag">Education &middot; Live platform</span>
+        <h3>Logical: 3D Knowledge Continuum</h3>
+        <p>A gamified critical-thinking platform where students move through 15 interactive 3D stages, from observation and basic logic to pattern intelligence and analytical thinking, earning XP and unlocking artifacts as they go.</p>
+        <ul class="facts">
+          <li><b>Built for:</b> school students in ScienceTech Foothold sessions</li>
+          <li><b>Structure:</b> 15 staged nodes with XP, credits and a progress tracker</li>
+        </ul>
+        <a class="btn primary" href="https://logical.sciencetechfoothold.org/" target="_blank" rel="noopener">Explore Logical &rarr;</a>
+      </div>
+    </article>
   </div>
 </div></section>
 
 <section id="writing"><div class="wrap">
   <h2>Writing &amp; Video</h2>
-  <ul class="plain">
-    <li><strong>Should we be polite to ChatGPT?</strong> &mdash; an essay on courtesy in human&ndash;AI conversation and what it does for the person typing. <button type="button" class="link-btn" data-pdf="essay">Read the essay (PDF) &rarr;</button></li>
-    <li><strong>YouTube</strong> &mdash; videos on how high schoolers can read, write and publish research. <a href="https://www.youtube.com/@notmedevang" target="_blank" rel="noopener">Watch &rarr;</a></li>
-  </ul>
+  <div class="essay">
+    <h3>Should we be polite to ChatGPT?</h3>
+    <p>An essay on courtesy in human&ndash;AI conversation and what it does for the person typing.</p>
+    <figure class="cert" id="certFig">
+      <img src="images/certificate-of-commendation.jpg" alt="Certificate of Commendation" loading="lazy" onerror="document.getElementById('certFig').style.display='none'">
+      <figcaption>Certificate of Commendation</figcaption>
+    </figure>
+    <button type="button" class="link-btn readlink" data-pdf="essay">Read the essay (PDF) &rarr;</button>
+  </div>
+  <div class="yt">
+    <h3>YouTube</h3>
+    <p>Videos on how high schoolers can read, write and publish research. <a href="https://www.youtube.com/@notmedevang" target="_blank" rel="noopener">Watch &rarr;</a></p>
+  </div>
   <div id="videos"></div>
 </div></section>
 
