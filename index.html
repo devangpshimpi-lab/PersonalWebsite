@@ -285,7 +285,7 @@
 </div></section>
 
 <section id="writing"><div class="wrap">
-  <h2>Writing &amp; Video</h2>
+  <h2>Writing</h2>
   <div class="essay-card">
     <div>
       <span class="tag">Essay &middot; John Locke Global Essay Competition</span>
@@ -297,11 +297,6 @@
       <img src="images/john-locke-logo.png" alt="John Locke Institute logo" onerror="this.outerHTML='<div class=&quot;fallback&quot;>John Locke<br>Global Essay<br>Competition</div>'">
     </div>
   </div>
-  <div class="yt">
-    <h3>YouTube</h3>
-    <p>Videos on how high schoolers can read, write and publish research. <a href="https://www.youtube.com/@notmedevang" target="_blank" rel="noopener">Watch &rarr;</a></p>
-  </div>
-  <div id="videos"></div>
 </div></section>
 
 <section id="beyond"><div class="wrap">
@@ -402,15 +397,6 @@
   document.getElementById('pdfClose').addEventListener('click', closePdf);
   modal.addEventListener('click', function (e) { if (e.target === modal) closePdf(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) closePdf(); });
-
-  // Video: paste YouTube video IDs (the part after v= in the link), e.g. ['abc123XYZ00']
-  var YOUTUBE_IDS = [];   // TODO
-  var box = document.getElementById('videos');
-  YOUTUBE_IDS.forEach(function (id) {
-    var d = document.createElement('div'); d.className = 'video-box';
-    d.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '" title="Video by Devang" allowfullscreen loading="lazy"></iframe>';
-    box.appendChild(d);
-  });
 </script>
 </body>
 </html>
